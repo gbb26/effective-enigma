@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 function Navigation({ number }) {
   return (
     <div className="nav">
@@ -6,7 +7,4 @@ function Navigation({ number }) {
     </div>
   );
 }
-Navigation.propTypes = {
-  number: Number.isRequired,
-};
 export default Navigation;

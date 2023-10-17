@@ -252,3 +252,15 @@ a:hover {
   align-items: center;
   gap: 5px;
 }
+
+.disabled {
+  cursor: not-allowed !important;
+  background: #2a123e;
+  color: #fff;
+}
+
+.disabled:hover {
+  cursor: not-allowed !important;
+  background: #2a123e;
+  color: #fff;
+}

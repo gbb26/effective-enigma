@@ -3,8 +3,7 @@ import CountryFlag from "../assets/india-flag.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 function MobileInput() {
-  const [flag, setFlag] = useState(false);
-  const [mobileNumber, setMobileNumber] = useState(0);
+  const [mobileNumber, setMobileNumber] = useState('');
   return (
     <div className="MobileInput">
       <div className="container">
@@ -16,7 +15,6 @@ function MobileInput() {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            setFlag(!flag);
           }}
           className="mobile-no-input"
         >
@@ -41,14 +39,23 @@ function MobileInput() {
             Terms of Use & Privacy Policy
           </a>
         </p>
-        <Link
-          style={{ textDecoration: "none" }}
-          to="/otp-authorization"
-          state={mobileNumber}
-          className="btn get-otp-button"
-        >
-          Get OTP
-        </Link>
+        {mobileNumber.length === 10 ? (
+          <Link
+            style={{ textDecoration: "none" }}
+            to="/otp-authorization"
+            state={mobileNumber}
+            className={`btn get-otp-button`}
+          >
+            Get OTP
+          </Link>
+        ) : (
+          <span
+            style={{ textDecoration: "none" }}
+            className="btn get-otp-button disabled"
+          >
+            Get OTP
+          </span>
+        )}
         <p className="help-login">
           Having Trouble Logging in?{" "}
           <a className="terms" href="/">
